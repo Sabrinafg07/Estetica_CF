@@ -18,7 +18,7 @@ const sequelize = require('./database/database')
       response.status(status.INTERNAL_SERVER_ERROR).json({ error })
   })
 
-  sequelize.sync({ force: true }).then(() => {
+  sequelize.sync().then(() => {
       const port = process.env.PORT || 3000
 
       app.set('port', port)

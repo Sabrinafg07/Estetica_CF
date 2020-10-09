@@ -17,7 +17,11 @@ const Cliente = sequelize.define("cliente", {
     },
     cpf: {
       allowNull: false,
-      type: Sequelize.BIGINT,
+      type: Sequelize.STRING,
+      validate: {
+        isNumeric: true,
+        len: [2, 255]
+      }
     },
     endereco: {
       allowNull: false,
@@ -37,12 +41,17 @@ const Cliente = sequelize.define("cliente", {
         allowNull: false,
         type: Sequelize.STRING(255),
         validate: {
+          isEmail: true,
           len: [2, 255]
         }
       },
     telefone: {
         allowNull: false,
-        type: Sequelize.BIGINT
+        type: Sequelize.STRING,
+        validate: {
+          isNumeric: true,
+          len: [2, 255]
+        }
       },
     datanascimento: {
         allowNull: false,

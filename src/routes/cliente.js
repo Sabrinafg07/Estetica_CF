@@ -7,8 +7,6 @@ router.get('/cliente/:id', controller.buscarUm)
 
 router.get('/cliente/', controller.buscarTodos)
 
-router.get('/cliente/:nome', controller.buscarNome)
-
 router.post('/cliente', controller.criar)
 
 router.put('/cliente/:id', controller.atualizar)

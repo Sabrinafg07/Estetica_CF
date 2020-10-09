@@ -17,7 +17,7 @@ const Status = require('http-status')
   exports.buscarNome = (request, response, next) => {
     const nome = request.params.nome
 
-    Cliente.findOne({where: {nome: nome}}).then((cliente) => {
+    Cliente.findAll({_nome: nome}).then((cliente) => {
         if (cliente) {
             response.send(cliente)
         } else {

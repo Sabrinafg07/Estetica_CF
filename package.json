@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sabrina Ferreira",
@@ -12,6 +13,7 @@
     "express": "^4.17.1",
     "http-status": "^1.4.2",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.4",
     "request": "^2.88.2",
     "sequelize": "^6.3.5"
   }
