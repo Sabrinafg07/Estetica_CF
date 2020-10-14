@@ -1,14 +1,19 @@
 const express = require('express')
 const http = require('http')
 const status = require('http-status')
-const clienteRoute = require('./routes/cliente')
+const clientesRoute = require('./routes/cliente')
+const servicosRoute = require('./routes/servico')
+const pacotesRoute = require('./routes/pacotes')
+const despesasRoute = require('./routes/despesas')
+const usuariosRoute = require('./routes/usuario')
+const empresasRoute = require('./routes/empresas')
 const sequelize = require('./database/database')
 
   const app = express()
 
   app.use(express.json())
 
-  app.use('/api', clienteRoute)
+  app.use('/api', clientesRoute, servicosRoute, pacotesRoute, despesasRoute, usuariosRoute, empresasRoute)
 
   app.use((request, response, next) => {
       response.status(status.NOT_FOUND).send()

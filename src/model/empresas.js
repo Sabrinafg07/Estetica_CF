@@ -1,22 +1,22 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../database/database");
 
-const Cliente = sequelize.define("cliente", {
+const Empresas = sequelize.define("empresas", {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    nome: {
+    descricao: {
       allowNull: false,
       type: Sequelize.STRING(255),
       validate: {
         len: [2, 255]
       }
     },
-    cpf: {
-      allowNull: false,
+    cnpj: {
+      allowNull: true,
       type: Sequelize.STRING,
       validate: {
         isNumeric: true,
@@ -24,18 +24,11 @@ const Cliente = sequelize.define("cliente", {
       }
     },
     endereco: {
-      allowNull: false,
+      allowNull: true,
       type: Sequelize.STRING(255),
       validate: {
         len: [2, 255]
       }
-    },
-    sexo: {
-        allowNull: false,
-        type: Sequelize.STRING(40),
-        validate: {
-          len: [2, 40]
-        }
     },
     email: {
         allowNull: false,
@@ -53,20 +46,6 @@ const Cliente = sequelize.define("cliente", {
           len: [2, 255]
         }
       },
-    datanascimento: {
-        allowNull: false,
-        type: Sequelize.DATEONLY()
-      },
 });
-Cliente.associate = function(model) {
-  Cliente.hasMany(model.Pacotes, {
-    foreignKey: 'cliente_id'
-  }) 
-  Cliente.hasMany(model.Servico, {
-    foreignKey: 'cliente_id'
-  })
 
-};
-return Cliente;
-
-module.exports = Cliente;
+module.exports = Empresas;
